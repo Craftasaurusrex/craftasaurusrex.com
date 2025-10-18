@@ -1,0 +1,16 @@
+<section class="intro">
+  <h1>Workshops</h1>
+  <p>{{ intro() }}</p>
+  <p class="spots" aria-live="polite">Total available spots: {{ totalSpots() }}</p>
+</section>
+
+<section class="offerings" aria-label="Course offerings">
+  @for (o of offerings(); track o.name) {
+  <rex-card [title]="o.name" [image]="o.img" [class.full]="o.spots === 0">
+    <p>{{ o.blurb }}</p>
+    <p class="capacity" [class.none]="o.spots === 0">
+      @if (o.spots > 0) {<span>{{ o.spots }} spot(s) left</span>} @else {<span>Full</span>}
+    </p>
+  </rex-card>
+  }
+</section>

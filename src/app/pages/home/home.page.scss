@@ -1,0 +1,13 @@
+.home {
+  display: block;
+}
+
+h2 {
+  margin-bottom: 8px;
+}
+
+.offerings {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+}

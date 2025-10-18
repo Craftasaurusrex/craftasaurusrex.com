@@ -1,0 +1,14 @@
+<div class="card-surface">
+  @if (hasImage()) {
+  <div class="offering-media">
+    <img [ngSrc]="image()!" [alt]="title()" width="400" height="225" />
+  </div>
+  }
+  <div class="offering-content">
+    <h2 class="offering-title">{{ title() }}</h2>
+    <div class="offering-desc"><ng-content /></div>
+  </div>
+  @if (hasLink()) {
+  <a class="card-link" [href]="link()" aria-label="{{ title() }}"></a>
+  }
+</div>

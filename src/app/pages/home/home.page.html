@@ -1,0 +1,30 @@
+<section id="home" class="bio" aria-labelledby="bio-heading">
+  <h2 id="bio-heading" class="visually-hidden">About Craftasaurus</h2>
+  <p class="bio-text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent suscipit, velit vitae
+    facilisis gravida, ipsum nunc consequat nulla, in aliquet lorem sapien sed metus. Integer
+    tincidunt, mauris non blandit molestie, lacus arcu pulvinar urna, vitae feugiat quam sapien id
+    leo.
+  </p>
+  <div class="bio-cta" aria-label="Primary call to action">
+    <a class="cta-button" href="courses">Explore Courses</a>
+    <a class="cta-button alt" [href]="'mailto:' + contactEmail()" aria-label="Email us directly"
+      >Email Us</a
+    >
+  </div>
+</section>
+
+<hr class="accent-separator" aria-hidden="true" />
+
+<!-- New separate section just for the offerings heading -->
+<section class="offerings-heading-section">
+  <h2 id="offerings-heading">Courses & Offerings</h2>
+</section>
+
+<section id="courses" class="offerings" aria-labelledby="offerings-heading">
+  @for (item of offerings(); track item.name) {
+  <rex-card [title]="item.name" [image]="item.img">
+    <p>{{ item.blurb }}</p>
+  </rex-card>
+  }
+</section>

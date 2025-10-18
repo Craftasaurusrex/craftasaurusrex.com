@@ -1,0 +1,49 @@
+<form
+  [formGroup]="contactForm"
+  (ngSubmit)="onSubmit()"
+  class="contact-form"
+  [attr.aria-busy]="pending()"
+>
+  <fieldset [disabled]="pending()">
+    <legend>Contact us</legend>
+    <div class="field">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" required aria-describedby="name-error" />
+      @if (contactForm.controls.name.touched && contactForm.controls.name.invalid) {
+      <p class="error" id="name-error">Name is required.</p>
+      }
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        required
+        aria-describedby="email-error"
+      />
+      @if (contactForm.controls.email.touched && contactForm.controls.email.invalid) {
+      <p class="error" id="email-error">Valid email required.</p>
+      }
+    </div>
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        formControlName="message"
+        rows="5"
+        required
+        aria-describedby="message-error"
+      ></textarea>
+      @if (contactForm.controls.message.touched && contactForm.controls.message.invalid) {
+      <p class="error" id="message-error">Min 10 characters.</p>
+      }
+    </div>
+  </fieldset>
+  <button type="submit" [disabled]="!canSubmit()" class="submit-btn" [class.pending]="pending()">
+    @if (pending()) { <span>Sending...</span> } @else { <span>Send message</span> }
+  </button>
+</form>
+@if (submitted()) {
+<p class="success" aria-live="polite">Thank you! Your message has been sent.</p>
+}

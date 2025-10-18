@@ -1,0 +1,24 @@
+<header class="site-header" role="banner">
+  <h1 class="site-title" [textContent]="title()"></h1>
+  <nav class="primary-nav" aria-label="Primary navigation">
+    <a class="nav-link" href="home">Home</a>
+    <span class="divider" aria-hidden="true">|</span>
+    <a class="nav-link" href="courses">Courses</a>
+    <span class="divider" aria-hidden="true">|</span>
+    <a class="nav-link" href="contact" aria-label="Go to contact page">Contact</a>
+  </nav>
+</header>
+
+<main class="main" role="main">
+  <router-outlet />
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <p>
+    <span>Rykene, Norge</span> •
+    <span>Established <span [textContent]="establishedYear"></span></span> •
+    <span
+      >&copy; <span [textContent]="currentYear"></span> <span [textContent]="title()"></span
+    ></span>
+  </p>
+</footer>

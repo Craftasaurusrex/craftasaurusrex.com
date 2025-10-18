@@ -1,15 +1,10 @@
-.app-root {
-  min-height: 100%;
+:host {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  flex: 1 0 auto;
 }
-/* Allow first level routed component to grow */
-.app-root > * {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
 .site-header {
   display: flex;
   flex-direction: column;
@@ -18,6 +13,7 @@
   align-items: flex-start;
   background: transparent;
   border-bottom: 1px solid var(--color-panel-border);
+  flex: 0 0 auto;
 }
 .brand {
   display: flex;
@@ -59,7 +55,6 @@
   color: var(--color-accent-ruby);
   opacity: 0.65;
 }
-
 .hero {
   flex: 1;
   display: grid;
@@ -70,7 +65,7 @@
   margin: 0 auto;
 }
 .main {
-  flex: 1;
+  flex: 1 1 auto; /* ensure main takes remaining space */
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
@@ -78,6 +73,7 @@
   max-width: 70rem;
   width: 100%;
   margin: 0 auto;
+  min-block-size: 0;
 }
 .intro {
   max-width: 42rem;
@@ -160,7 +156,6 @@
 .cta-button.alt:active {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(130, 38, 89, 0.55);
 }
-
 .accent-separator {
   border: 0;
   height: 2px;
@@ -169,7 +164,6 @@
   box-shadow: 0 0 12px -2px rgba(0, 77, 97, 0.6), 0 0 18px -2px rgba(130, 38, 89, 0.55);
   position: relative;
 }
-
 .experience {
   font-style: italic;
   color: var(--color-accent-ruby);
@@ -191,8 +185,6 @@
   outline-offset: 2px;
   text-decoration: none;
 }
-
-/* offerings section root intentionally styled via child headings and list */
 .offerings h2 {
   font-size: 1.35rem;
   margin: 0 0 0.75rem;
@@ -206,14 +198,6 @@
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
-/* offering-card styles moved to card.component.scss */
-/* .offering-card { ... } */
-/* .offering-card:hover, .offering-card:focus-visible { ... } */
-/* .offering-card:active { ... } */
-/* .offering-card h3 { ... } */
-/* .offering-title { ... } */
-/* .offering-desc { ... } */
-/* .offering-media img { ... } */
 
 .site-footer {
   text-align: center;
@@ -223,8 +207,9 @@
   border-top: 1px solid var(--color-panel-border);
   background: var(--color-bg);
   backdrop-filter: blur(2px);
+  flex: 0 0 auto;
+  margin-top: auto;
 }
-
 .visually-hidden {
   position: absolute !important;
   height: 1px;
@@ -235,8 +220,6 @@
   clip-path: inset(50%);
   border: 0;
 }
-
-/* Selection & scrollbar styling for immersive feel */
 ::selection {
   background: var(--color-accent-teal);
   color: #fff;
@@ -255,7 +238,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(var(--color-accent-ruby), var(--color-accent-teal));
 }
-
 @media (min-width: 48rem) {
   .site-header {
     flex-direction: row;
@@ -269,7 +251,6 @@
     padding-top: 2rem;
   }
 }
-
 @media (min-width: 52rem) {
   .hero {
     grid-template-columns: 1fr 1fr;
@@ -278,10 +259,8 @@
     align-self: center;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .cta-button {
     transition: none;
   }
-  /* offering-card transition handled inside card component now */
 }
