@@ -1,0 +1,121 @@
+---
+import { photo, images } from '../data';
+const src = images.heroWork;
+---
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 class="reveal">Made by hand, in wood, steel, and fire.</h1>
+      <p class="hero-sub reveal" style="--reveal-delay: 90ms">
+        Craftasaurus is a one-person workshop. Furniture, forged hardware, and
+        laser-cut pieces, each one drawn, built, and finished to be kept.
+      </p>
+      <div class="hero-cta reveal" style="--reveal-delay: 180ms">
+        <a href="#work" class="btn">
+          See the work
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"></path>
+          </svg>
+        </a>
+        <a href="#process" class="btn btn--ghost">How it is made</a>
+      </div>
+    </div>
+
+    <figure class="hero-figure reveal" style="--reveal-delay: 120ms">
+      <div class="hero-frame">
+        <img
+          src={photo(src, 1200)}
+          srcset={`${photo(src, 800)} 800w, ${photo(src, 1200)} 1200w, ${photo(src, 1600)} 1600w`}
+          sizes="(max-width: 900px) 92vw, 46vw"
+          width="1200"
+          height="1500"
+          fetchpriority="high"
+          alt="A wooden block plane resting in a heap of fresh, pale shavings on the bench."
+        />
+      </div>
+      <figcaption>Mid-project, in white oak.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-block: clamp(2.5rem, 6vw, 5.5rem) clamp(3rem, 7vw, 6rem);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.9rem, 6.2vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    margin: 0;
+  }
+  .hero-sub {
+    margin: 1.5rem 0 0;
+    max-width: 34ch;
+    font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .hero-figure {
+    margin: 0;
+    position: relative;
+  }
+  .hero-frame {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 1px oklch(0.235 0.012 55 / 0.04),
+      0 40px 80px -40px oklch(0.235 0.012 55 / 0.45);
+  }
+  .hero-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px var(--hairline);
+    border-radius: var(--radius);
+    pointer-events: none;
+  }
+  .hero-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+  .hero-figure::before {
+    content: '';
+    position: absolute;
+    inset: -8% -6% -12% -6%;
+    z-index: -1;
+    background: radial-gradient(60% 55% at 70% 30%, var(--glow), transparent 70%);
+    filter: blur(10px);
+  }
+  .hero-figure figcaption {
+    margin-top: 0.85rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+    .hero-copy { order: 1; }
+    .hero-figure { order: 2; max-width: 30rem; }
+    .hero-sub { max-width: 46ch; }
+  }
+</style>

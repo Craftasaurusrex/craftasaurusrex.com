@@ -1,0 +1,229 @@
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/work-sans';
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ *
+ * Craftasaurus design tokens
+ * North Star: "The Workbench, Not the Boutique."
+ * Warmth comes from wood, steel, fire, and imagery — never a cream bg.
+ * ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: light;
+
+  /* Architectural surfaces — near-neutral off-white, a whisper toward wood, NOT cream */
+  --surface: oklch(0.984 0.003 65);
+  --surface-2: oklch(0.955 0.006 65);
+  --surface-3: oklch(0.921 0.009 62);
+
+  /* Ink = forged steel, warm charcoal */
+  --ink: oklch(0.235 0.012 55);
+  --ink-soft: oklch(0.435 0.014 52);
+  --hairline: oklch(0.235 0.012 55 / 0.14);
+
+  /* Material roles */
+  --wood: oklch(0.475 0.088 52);
+  --wood-deep: oklch(0.36 0.07 48);
+  --steel: oklch(0.5 0.018 245);
+
+  /* Ember — the one hot accent. Deep enough that off-white text clears AA. */
+  --ember: oklch(0.56 0.163 41);
+  --ember-hot: oklch(0.63 0.185 45);
+  --ember-deep: oklch(0.47 0.14 39);
+  --on-ember: oklch(0.99 0.004 70);
+
+  --glow: oklch(0.63 0.185 45 / 0.28);
+
+  /* Motion (Emil curves) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --radius: 3px;
+  --container: 78rem;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Deep forge charcoal, warm, never pure black */
+  --surface: oklch(0.171 0.008 58);
+  --surface-2: oklch(0.211 0.01 56);
+  --surface-3: oklch(0.262 0.012 54);
+
+  --ink: oklch(0.945 0.004 70);
+  --ink-soft: oklch(0.735 0.009 62);
+  --hairline: oklch(0.945 0.004 70 / 0.15);
+
+  --wood: oklch(0.63 0.09 55);
+  --wood-deep: oklch(0.52 0.082 52);
+  --steel: oklch(0.68 0.02 240);
+
+  --ember: oklch(0.66 0.19 44);
+  --ember-hot: oklch(0.72 0.195 47);
+  --ember-deep: oklch(0.56 0.165 42);
+  --on-ember: oklch(0.17 0.01 55);
+
+  --glow: oklch(0.72 0.195 47 / 0.34);
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-hairline: var(--hairline);
+  --color-wood: var(--wood);
+  --color-wood-deep: var(--wood-deep);
+  --color-steel: var(--steel);
+  --color-ember: var(--ember);
+  --color-ember-hot: var(--ember-hot);
+  --color-ember-deep: var(--ember-deep);
+  --color-on-ember: var(--on-ember);
+
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Work Sans Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --radius-brand: var(--radius);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.65;
+  }
+
+  ::selection {
+    background: var(--ember);
+    color: var(--on-ember);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.028em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  :focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  img { -webkit-user-drag: none; user-select: none; }
+}
+
+/* ------------------------------------------------------------------ *
+ * Components
+ * ------------------------------------------------------------------ */
+
+.wrap {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+/* Buttons ---------------------------------------------------------- */
+.btn {
+  --_bg: var(--ember);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.985rem;
+  letter-spacing: 0.005em;
+  line-height: 1;
+  padding: 0.95rem 1.6rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: var(--_bg);
+  color: var(--on-ember);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.16s var(--ease-out), background-color 0.2s var(--ease-out),
+    box-shadow 0.24s var(--ease-out);
+  box-shadow: 0 1px 0 oklch(0.235 0.012 55 / 0.04), 0 10px 26px -14px var(--glow);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { background: var(--ember-hot); box-shadow: 0 2px 0 oklch(0.235 0.012 55 / 0.05), 0 18px 40px -16px var(--glow); }
+}
+.btn:active { transform: scale(0.975); }
+
+.btn--ghost {
+  --_bg: transparent;
+  color: var(--ink);
+  border-color: var(--hairline);
+  box-shadow: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn--ghost:hover { background: var(--surface-2); border-color: color-mix(in oklch, var(--ink) 32%, transparent); box-shadow: none; }
+}
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.arrow-link svg { transition: transform 0.22s var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .arrow-link:hover svg { transform: translateX(4px); }
+}
+
+/* Reveal on scroll — enhances an already-visible default.
+   Only arms once JS confirms support + motion is allowed. */
+.reveal { opacity: 1; }
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
+}
+html.js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+}
+
+/* Fine grain over the page — fixed, non-scrolling, cheap */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-theme='dark'] .grain { mix-blend-mode: screen; opacity: 0.05; }

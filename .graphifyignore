@@ -1,0 +1,17 @@
+# Ignore everything
+*
+
+# Include only source code
+!src/
+!src/**
+
+# Include package metadata
+!package.json
+!package-lock.json
+!pnpm-lock.yaml
+!yarn.lock
+!tsconfig.json
+!astro.config.*
+!vite.config.*
+!eslint.config.*
+!prettier.config.*

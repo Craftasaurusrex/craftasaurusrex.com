@@ -1,0 +1,128 @@
+---
+import { photo, images, steps } from '../data';
+---
+
+<section class="process" id="process">
+  <div class="process-bg" aria-hidden="true">
+    <img
+      src={photo(images.forge, 1600)}
+      srcset={`${photo(images.forge, 1100)} 1100w, ${photo(images.forge, 1600)} 1600w, ${photo(images.forge, 2000)} 2000w`}
+      sizes="100vw"
+      width="1600"
+      height="1000"
+      loading="lazy"
+      alt=""
+    />
+  </div>
+
+  <div class="wrap process-inner">
+    <div class="process-head">
+      <p class="eyebrow reveal">The making</p>
+      <h2 class="reveal" style="--reveal-delay: 70ms">
+        Nothing hides on a piece made by hand.
+      </h2>
+      <p class="process-lead reveal" style="--reveal-delay: 140ms">
+        Three stages, start to finish. You can see every one of them in the
+        piece when it arrives.
+      </p>
+    </div>
+
+    <ol class="steps">
+      {
+        steps.map((s, i) => (
+          <li class="step reveal" style={`--reveal-delay: ${i * 110}ms`}>
+            <span class="step-n">{s.n}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .process {
+    position: relative;
+    isolation: isolate;
+    color: oklch(0.95 0.006 70);
+    padding-block: clamp(4.5rem, 9vw, 8.5rem);
+    overflow: hidden;
+  }
+  .process-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .process-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .process::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        180deg,
+        oklch(0.16 0.02 45 / 0.82),
+        oklch(0.12 0.02 40 / 0.9)
+      ),
+      radial-gradient(80% 60% at 20% 0%, oklch(0.5 0.16 45 / 0.28), transparent 60%);
+  }
+
+  .process-head {
+    max-width: 40rem;
+    margin-bottom: clamp(2.75rem, 5vw, 4.5rem);
+  }
+  .process-head .eyebrow { color: var(--ember-hot); margin: 0 0 0.9rem; }
+  .process-head h2 {
+    font-size: clamp(2.1rem, 4.6vw, 3.6rem);
+    margin: 0;
+    color: oklch(0.98 0.005 75);
+  }
+  .process-lead {
+    margin: 1.15rem 0 0;
+    font-size: 1.12rem;
+    color: oklch(0.86 0.01 70);
+    max-width: 44ch;
+  }
+
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.75rem, 3.5vw, 3.5rem);
+  }
+  .step {
+    position: relative;
+    padding-top: 1.75rem;
+    border-top: 1px solid oklch(0.95 0.006 70 / 0.22);
+  }
+  .step-n {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    color: var(--ember-hot);
+  }
+  .step h3 {
+    font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+    margin: 0.5rem 0 0.6rem;
+    color: oklch(0.98 0.005 75);
+  }
+  .step p {
+    margin: 0;
+    color: oklch(0.84 0.01 70);
+    font-size: 1.01rem;
+    max-width: 36ch;
+  }
+
+  @media (max-width: 760px) {
+    .steps { grid-template-columns: 1fr; gap: 2rem; }
+    .step p { max-width: 52ch; }
+  }
+</style>

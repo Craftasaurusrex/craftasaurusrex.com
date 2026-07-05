@@ -1,0 +1,120 @@
+---
+import { photo, images } from '../data';
+---
+
+<section class="maker" id="maker">
+  <div class="wrap maker-grid">
+    <figure class="maker-figure reveal">
+      <div class="maker-frame">
+        <img
+          src={photo(images.maker, 1000)}
+          srcset={`${photo(images.maker, 700)} 700w, ${photo(images.maker, 1100)} 1100w`}
+          sizes="(max-width: 900px) 92vw, 42vw"
+          width="700"
+          height="840"
+          loading="lazy"
+          alt="The maker at the workbench, tools within reach, sawdust on the surface."
+        />
+      </div>
+    </figure>
+
+    <div class="maker-copy">
+      <h2 class="reveal">Made by one person, on purpose.</h2>
+      <div class="maker-text reveal" style="--reveal-delay: 90ms">
+        <p>
+          I run Craftasaurus on my own. I draw it, cut it, forge it, and finish
+          it. No production line, no outsourcing, no piece leaving here that I
+          would not keep myself.
+        </p>
+        <p>
+          When something carries a plane mark or a hammer face, that is not a
+          flaw to sand away. It is the proof that a person made it, for you, out
+          of a real material that will age and last.
+        </p>
+      </div>
+      <dl class="maker-facts reveal" style="--reveal-delay: 160ms">
+        <div>
+          <dt>Materials</dt>
+          <dd>Solid hardwood, mild and tool steel, laser-cut wood.</dd>
+        </div>
+        <div>
+          <dt>Made to order</dt>
+          <dd>Sized, finished, and signed for you.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<style>
+  .maker {
+    padding-block: clamp(4rem, 9vw, 8rem);
+    background: var(--surface-2);
+  }
+  .maker-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .maker-figure { margin: 0; }
+  .maker-frame {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 30px 60px -38px oklch(0.235 0.012 55 / 0.55);
+  }
+  .maker-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px var(--hairline);
+    border-radius: var(--radius);
+  }
+  .maker-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    object-fit: cover;
+  }
+
+  .maker-copy h2 {
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    margin: 0 0 1.3rem;
+  }
+  .maker-text p {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 54ch;
+  }
+  .maker-text p:last-child { margin-bottom: 0; }
+
+  .maker-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin: 2rem 0 0;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--hairline);
+  }
+  .maker-facts dt {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 0.4rem;
+  }
+  .maker-facts dd {
+    margin: 0;
+    font-weight: 500;
+    max-width: 22ch;
+  }
+
+  @media (max-width: 900px) {
+    .maker-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+    .maker-figure { max-width: 28rem; }
+  }
+</style>

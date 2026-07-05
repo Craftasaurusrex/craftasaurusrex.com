@@ -1,0 +1,129 @@
+---
+import { photo, crafts } from '../data';
+---
+
+<section class="crafts" id="craft">
+  <div class="wrap">
+    <div class="crafts-head">
+      <h2 class="reveal">Three materials, one bench.</h2>
+      <p class="reveal" style="--reveal-delay: 80ms">
+        Wood, steel, and a laser. Different tools, the same rule: cut it well,
+        finish it honestly, and leave the marks that prove a person was here.
+      </p>
+    </div>
+
+    <ul class="craft-list">
+      {
+        crafts.map((c, i) => (
+          <li class={`craft reveal craft--${c.key}`} style={`--reveal-delay: ${i * 90}ms`}>
+            <div class="craft-media">
+              <img
+                src={photo(c.img, 800)}
+                srcset={`${photo(c.img, 640)} 640w, ${photo(c.img, 900)} 900w`}
+                sizes="(max-width: 760px) 92vw, 30vw"
+                width="640"
+                height="720"
+                loading="lazy"
+                alt={c.alt}
+              />
+            </div>
+            <div class="craft-body">
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .crafts {
+    position: relative;
+    padding-block: clamp(4rem, 9vw, 8rem);
+  }
+  .crafts-head {
+    max-width: 46rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .crafts-head h2 {
+    font-size: clamp(2rem, 4.4vw, 3.4rem);
+    margin: 0;
+  }
+  .crafts-head p {
+    margin: 1.15rem 0 0;
+    max-width: 54ch;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+  }
+
+  .craft-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+  }
+  .craft { margin: 0; }
+  /* vertical rhythm: nudge the middle column down on wide screens */
+  @media (min-width: 761px) {
+    .craft:nth-child(2) { transform: translateY(2.75rem); }
+    html.js .craft:nth-child(2).reveal { transform: translateY(calc(2.75rem + 18px)); }
+    html.js .craft:nth-child(2).reveal.in { transform: translateY(2.75rem); }
+  }
+
+  .craft-media {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 20px 44px -30px oklch(0.235 0.012 55 / 0.5);
+  }
+  .craft-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px var(--hairline);
+    border-radius: var(--radius);
+  }
+  .craft-media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 0.7s var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .craft:hover .craft-media img { transform: scale(1.04); }
+  }
+
+  .craft-body { padding-top: 1.4rem; }
+  .craft-body h3 {
+    font-size: 1.7rem;
+    margin: 0 0 0.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+  }
+  .craft-body h3::before {
+    content: '';
+    width: 1.6rem;
+    height: 2px;
+    background: var(--ember);
+    transform: translateY(-0.35rem);
+    flex: none;
+  }
+  .craft-body p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    max-width: 34ch;
+  }
+
+  @media (max-width: 760px) {
+    .craft-list { grid-template-columns: 1fr; gap: 2.75rem; }
+    .craft-media img { aspect-ratio: 16 / 10; }
+    .craft-body p { max-width: 52ch; }
+  }
+</style>

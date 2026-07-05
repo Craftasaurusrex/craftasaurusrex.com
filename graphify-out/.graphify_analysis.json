@@ -1,0 +1,154 @@
+{
+  "communities": {
+    "0": [
+      "c_code_craftasaurus_brand_src_data",
+      "src_components_crafts",
+      "src_components_cta",
+      "src_components_featured",
+      "src_components_hero",
+      "src_components_maker",
+      "src_components_process",
+      "src_pages_index"
+    ],
+    "1": [
+      "src_data",
+      "src_data_crafts",
+      "src_data_images",
+      "src_data_nav",
+      "src_data_photo",
+      "src_data_pieces",
+      "src_data_steps"
+    ],
+    "2": [
+      "package_dependencies",
+      "package_dependencies_astro",
+      "package_dependencies_fontsource_variable_bricolage_grotesque",
+      "package_dependencies_fontsource_variable_work_sans",
+      "package_dependencies_tailwindcss",
+      "package_dependencies_tailwindcss_vite"
+    ],
+    "3": [
+      "package",
+      "package_name",
+      "package_private",
+      "package_type",
+      "package_version"
+    ],
+    "4": [
+      "package_scripts",
+      "package_scripts_astro",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_preview"
+    ],
+    "5": [
+      "tsconfig",
+      "tsconfig_exclude",
+      "tsconfig_extends",
+      "tsconfig_include"
+    ],
+    "6": [
+      "src_components_nav",
+      "src_components_nav_menubtn",
+      "src_components_nav_mobilenav"
+    ],
+    "7": [
+      "c_code_craftasaurus_brand_src_styles_global_css",
+      "src_layouts_base"
+    ],
+    "8": [
+      "src_components_footer",
+      "src_components_footer_year"
+    ],
+    "9": [
+      "astro_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.42857142857142855,
+    "1": 0.2857142857142857,
+    "2": 0.3333333333333333,
+    "3": 0.4,
+    "4": 0.4,
+    "5": 0.5,
+    "6": 0.6666666666666666,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0
+  },
+  "gods": [
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 5
+    },
+    {
+      "id": "src_components_footer",
+      "label": "../components/Footer.astro",
+      "degree": 3
+    },
+    {
+      "id": "src_components_cta",
+      "label": "../components/CTA.astro",
+      "degree": 2
+    },
+    {
+      "id": "src_components_crafts",
+      "label": "../components/Crafts.astro",
+      "degree": 2
+    },
+    {
+      "id": "src_components_featured",
+      "label": "../components/Featured.astro",
+      "degree": 2
+    },
+    {
+      "id": "src_components_hero",
+      "label": "../components/Hero.astro",
+      "degree": 2
+    },
+    {
+      "id": "src_components_maker",
+      "label": "../components/Maker.astro",
+      "degree": 2
+    },
+    {
+      "id": "src_components_process",
+      "label": "../components/Process.astro",
+      "degree": 2
+    },
+    {
+      "id": "package_private",
+      "label": "private",
+      "degree": 1
+    },
+    {
+      "id": "package_scripts_dev",
+      "label": "dev",
+      "degree": 1
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `dependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.070) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `scripts` connect `scripts` to `package.json`?",
+      "why": "High betweenness centrality (0.058) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `../components/Footer.astro` connect `../components/Footer.astro` to `index.astro`?",
+      "why": "High betweenness centrality (0.016) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `name`, `type`, `version` to the rest of the system?",
+      "why": "25 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}
