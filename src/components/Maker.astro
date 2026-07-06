@@ -7,8 +7,8 @@ import { photo, images } from '../data';
     <figure class="maker-figure reveal">
       <div class="maker-frame">
         <img
-          src={photo(images.maker, 1000)}
-          srcset={`${photo(images.maker, 700)} 700w, ${photo(images.maker, 1100)} 1100w`}
+          src={photo(images.cnc, 1000)}
+          srcset={`${photo(images.cnc, 700)} 700w, ${photo(images.cnc, 1100)} 1100w`}
           sizes="(max-width: 900px) 92vw, 42vw"
           width="700"
           height="840"
@@ -48,7 +48,7 @@ import { photo, images } from '../data';
 
 <style>
   .maker {
-    padding-block: clamp(4rem, 9vw, 8rem);
+    padding-block: clamp(3rem, 6.5vw, 5.5rem);
     background: var(--surface-2);
   }
   .maker-grid {

@@ -1,6 +1,6 @@
 ---
-import { photo, images } from '../data';
-const src = images.heroWork;
+import { photo, images, socials } from '../data';
+const src = images.desk;
 ---
 
 <section class="hero" id="top">
@@ -21,6 +21,28 @@ const src = images.heroWork;
         </a>
         <a href="#process" class="btn btn--ghost">How it is made</a>
       </div>
+      <ul class="hero-social reveal" style="--reveal-delay: 240ms">
+        {socials.map((s) => (
+          <li>
+            <a href={s.href} aria-label={s.label} target="_blank" rel="noopener">
+              {s.label === 'Instagram' ? (
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"></circle>
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="5" width="20" height="14" rx="4"></rect>
+                  <path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"></path>
+                </svg>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
 
     <figure class="hero-figure reveal" style="--reveal-delay: 120ms">
@@ -43,7 +65,7 @@ const src = images.heroWork;
 <style>
   .hero {
     position: relative;
-    padding-block: clamp(2.5rem, 6vw, 5.5rem) clamp(3rem, 7vw, 6rem);
+    padding-block: clamp(2.25rem, 5vw, 4.5rem) clamp(2.5rem, 5.5vw, 4.5rem);
   }
   .hero-grid {
     display: grid;
@@ -72,6 +94,25 @@ const src = images.heroWork;
     margin-top: 2rem;
   }
 
+  .hero-social {
+    list-style: none;
+    margin: 1.4rem 0 0;
+    padding: 0;
+    display: flex;
+    gap: 0.6rem;
+  }
+  .hero-social a {
+    display: inline-grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius);
+    border: 1px solid var(--hairline);
+    color: var(--ink);
+    transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+  }
+  .hero-social a:hover { color: var(--ember); border-color: var(--ember); }
+
   .hero-figure {
     margin: 0;
     position: relative;
@@ -82,6 +123,9 @@ const src = images.heroWork;
     overflow: hidden;
     box-shadow: 0 2px 1px oklch(0.235 0.012 55 / 0.04),
       0 40px 80px -40px oklch(0.235 0.012 55 / 0.45);
+    img {
+      object-position: 54%;
+    }
   }
   .hero-frame::after {
     content: '';

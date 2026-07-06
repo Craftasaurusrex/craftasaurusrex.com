@@ -1,5 +1,5 @@
 ---
-import { nav } from '../data';
+import { nav, socials } from '../data';
 const year = new Date().getFullYear();
 ---
 
@@ -29,6 +29,28 @@ const year = new Date().getFullYear();
         </svg>
       </a>
       <p>Commissions open. Reply within two working days.</p>
+      <ul class="foot-social">
+        {socials.map((s) => (
+          <li>
+            <a href={s.href} aria-label={s.label} target="_blank" rel="noopener">
+              {s.label === 'Instagram' ? (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"></circle>
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="5" width="20" height="14" rx="4"></rect>
+                  <path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"></path>
+                </svg>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </div>
 
@@ -41,7 +63,7 @@ const year = new Date().getFullYear();
 <style>
   .site-foot {
     border-top: 1px solid var(--hairline);
-    padding-block: clamp(3rem, 6vw, 4.5rem) 2rem;
+    padding-block: clamp(2.5rem, 5vw, 3.75rem) 2rem;
   }
   .foot-top {
     display: grid;
@@ -96,6 +118,24 @@ const year = new Date().getFullYear();
     font-size: 0.92rem;
     max-width: 26ch;
   }
+  .foot-social {
+    list-style: none;
+    margin: 1.1rem 0 0;
+    padding: 0;
+    display: flex;
+    gap: 0.6rem;
+  }
+  .foot-social a {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--hairline);
+    color: var(--ink);
+    transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+  }
+  .foot-social a:hover { color: var(--ember); border-color: var(--ember); }
 
   .foot-bottom {
     display: flex;

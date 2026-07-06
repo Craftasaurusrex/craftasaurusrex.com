@@ -1,24 +1,32 @@
 // Central content + imagery. Swap image ids here to change any photo site-wide.
-// All ids verified resolvable on the Unsplash CDN.
+// Originals live in assets/landing; responsive WebP variants are generated into
+// public/landing by `npm run optimize:images` (see scripts/optimize-images.mjs).
 
-const UNSPLASH = 'https://images.unsplash.com/photo-';
+import variants from './landing-manifest.json';
 
+// Resolve an image id + requested width to the nearest available WebP variant.
 export function photo(id: string, w = 1400): string {
-  return `${UNSPLASH}${id}?auto=format&fit=crop&w=${w}&q=80`;
+  const base = id.replace(/\.(jpe?g|png|webp)$/i, '');
+  const widths = (variants as Record<string, number[]>)[ base ];
+  if (!widths?.length) return `/landing/${ id }`;
+  const pick = widths.find((x) => x >= w) ?? widths[ widths.length - 1 ];
+  return `/landing/${ base }-${ pick }.webp`;
 }
 
 export const images = {
-  heroWork: '1631396327481-661e938ae313', // a block plane resting in fresh shavings
-  wood: '1520372561567-bac27b0e5fa1', // worn hand tools on a sawdust bench
-  steel: '1716469801932-3b1b5494615c', // hammer striking glowing steel on the anvil
-  forge: '1543347080-1a67824f1be2', // forge fire and sparks (process backdrop)
-  woodGrain: '1611600700192-d87eaeed4f81', // close weathered wood grain
-  laser: '1582269847642-87432658c952', // laser-engraved wooden tiles
-  boxPiece: '1549315309-f0857a904065', // open walnut keepsake box
-  knifePiece: '1596299085622-4f96269e5bc7', // hand-forged blade on black
-  signPiece: '1728495002385-b1363666eccb', // laser-engraved keepsake book
-  maker: '1511306162219-1c5a469ab86c', // a smith at the anvil in his workshop
+  desk: 'desk.jpg',
+  laserAssorted: 'laser_assorted.jpg',
+  plantBrackets: 'plant_brackets.jpg',
+  lightBrackets: 'light_brackets.jpg',
+  laserLiverpool: 'laser_liverpool.jpg',
+  deskBowties: 'desk_bowties.jpg',
+  cnc: 'cnc.jpg',
+  lightAssorted: 'light_assorted.jpg',
+  smithTowelRack: 'smithing_towelrack.jpg',
+  hosSign: 'laser_hearts_and_souls.jpg',
+  lightComplete: 'light_complete.jpg',
 };
+
 
 export const nav = [
   { label: 'The making', href: '#process' },
@@ -26,26 +34,31 @@ export const nav = [
   { label: 'Shop', href: '#shop' },
 ];
 
+export const socials = [
+  { label: 'Instagram', href: 'https://www.instagram.com/craftasaurusrex/' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@Craftasaurusrex' },
+];
+
 export const crafts = [
   {
     key: 'wood',
     title: 'Wood',
     body: 'Furniture and objects, cut and joined by hand. White oak, walnut, and ash, finished so the grain does the talking.',
-    img: images.wood,
+    img: images.lightComplete,
     alt: 'Well-worn woodworking tools resting on a sawdust-dusted workbench.',
   },
   {
     key: 'steel',
     title: 'Steel',
     body: 'Forged hardware and ironwork. Heated in the coals, hammered on the anvil, then quenched. The hammer marks stay.',
-    img: images.steel,
+    img: images.lightAssorted,
     alt: 'A hammer striking a glowing orange bar of steel on the anvil.',
   },
   {
     key: 'laser',
     title: 'Laser',
     body: 'Clean cuts and engraving for signs, boxes, and inlay. Drawn first, then burned to a fraction of a millimetre.',
-    img: images.laser,
+    img: images.laserAssorted,
     alt: 'Wooden tiles engraved with fine portraits and patterns by a laser.',
   },
 ];
@@ -72,21 +85,21 @@ export const pieces = [
   {
     title: 'The Keepsake Box',
     meta: 'Oiled walnut, fitted lid',
-    img: images.boxPiece,
+    img: images.plantBrackets,
     alt: 'An open oiled-walnut box with a fitted lid, holding a watch and small keepsakes.',
     span: 'lead',
   },
   {
     title: 'The Kitchen Knife',
     meta: 'Hand-forged high-carbon steel',
-    img: images.knifePiece,
+    img: images.smithTowelRack,
     alt: 'A hand-forged blade catching a thin line of light against a black ground.',
     span: 'tall',
   },
   {
     title: 'Engraved Keepsake',
     meta: 'Laser-cut birch, your words',
-    img: images.signPiece,
+    img: images.hosSign,
     alt: 'Hands holding a laser-engraved wooden book with a name and a mountain range.',
     span: 'wide',
   },

@@ -1,5 +1,6 @@
 ---
-import { photo, pieces } from '../data';
+import { photo, pieces, socials } from '../data';
+const instagram = socials.find((s) => s.label === 'Instagram');
 ---
 
 <section class="featured" id="work">
@@ -35,12 +36,23 @@ import { photo, pieces } from '../data';
         ))
       }
     </div>
+
+    <a class="featured-ig reveal" href={instagram.href} target="_blank" rel="noopener"
+      style="--reveal-delay: 330ms">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+        <circle cx="12" cy="12" r="4"></circle>
+        <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"></circle>
+      </svg>
+      Keep up with my work on Instagram
+    </a>
   </div>
 </section>
 
 <style>
   .featured {
-    padding-block: clamp(4rem, 9vw, 8rem);
+    padding-block: clamp(3rem, 6.5vw, 5.5rem);
   }
   .featured-head {
     display: flex;
@@ -70,6 +82,7 @@ import { photo, pieces } from '../data';
     align-items: start;
   }
   .piece { margin: 0; }
+  .piece:first-child { align-self: center; }
   .piece--lead { grid-column: span 3; grid-row: span 2; }
   .piece--tall { grid-column: span 3; }
   .piece--wide { grid-column: span 3; }
@@ -98,6 +111,7 @@ import { photo, pieces } from '../data';
   .piece--lead .piece-media img { aspect-ratio: 4 / 5; }
   .piece--tall .piece-media img { aspect-ratio: 16 / 11; }
   .piece--wide .piece-media img { aspect-ratio: 16 / 11; }
+  .piece:nth-child(2) .piece-media img { object-position: 0% 14%; }
   @media (hover: hover) and (pointer: fine) {
     .piece:hover .piece-media img { transform: scale(1.03); }
   }
@@ -118,6 +132,20 @@ import { photo, pieces } from '../data';
     color: var(--ink-soft);
     font-size: 0.9rem;
   }
+
+  .featured-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: clamp(2.25rem, 4vw, 3.5rem);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 0.25rem;
+    transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+  }
+  .featured-ig:hover { color: var(--ember); border-color: var(--ember); }
 
   @media (max-width: 780px) {
     .bento { grid-template-columns: 1fr 1fr; }

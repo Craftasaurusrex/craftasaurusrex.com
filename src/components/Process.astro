@@ -1,12 +1,13 @@
 ---
-import { photo, images, steps } from '../data';
+import { photo, images, steps, socials } from '../data';
+const youtube = socials.find((s) => s.label === 'YouTube');
 ---
 
 <section class="process" id="process">
   <div class="process-bg" aria-hidden="true">
     <img
-      src={photo(images.forge, 1600)}
-      srcset={`${photo(images.forge, 1100)} 1100w, ${photo(images.forge, 1600)} 1600w, ${photo(images.forge, 2000)} 2000w`}
+      src={photo(images.deskBowties, 1600)}
+      srcset={`${photo(images.deskBowties, 1100)} 1100w, ${photo(images.deskBowties, 1600)} 1600w, ${photo(images.deskBowties, 2000)} 2000w`}
       sizes="100vw"
       width="1600"
       height="1000"
@@ -38,6 +39,16 @@ import { photo, images, steps } from '../data';
         ))
       }
     </ol>
+
+    <a class="process-yt reveal" href={youtube.href} target="_blank" rel="noopener"
+      style="--reveal-delay: 330ms">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="5" width="20" height="14" rx="4"></rect>
+        <path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"></path>
+      </svg>
+      Watch it happen on YouTube
+    </a>
   </div>
 </section>
 
@@ -46,7 +57,7 @@ import { photo, images, steps } from '../data';
     position: relative;
     isolation: isolate;
     color: oklch(0.95 0.006 70);
-    padding-block: clamp(4.5rem, 9vw, 8.5rem);
+    padding-block: clamp(3.25rem, 7vw, 6rem);
     overflow: hidden;
   }
   .process-bg {
@@ -120,6 +131,20 @@ import { photo, images, steps } from '../data';
     font-size: 1.01rem;
     max-width: 36ch;
   }
+
+  .process-yt {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: clamp(2.25rem, 4vw, 3.5rem);
+    color: oklch(0.95 0.006 70);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid oklch(0.95 0.006 70 / 0.35);
+    padding-bottom: 0.25rem;
+    transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+  }
+  .process-yt:hover { color: var(--ember-hot); border-color: var(--ember-hot); }
 
   @media (max-width: 760px) {
     .steps { grid-template-columns: 1fr; gap: 2rem; }
