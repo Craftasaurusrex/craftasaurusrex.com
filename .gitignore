@@ -23,3 +23,6 @@ pnpm-debug.log*
 .idea/
 .vscode/
 Thumbs.db
+
+# local env files
+todo/

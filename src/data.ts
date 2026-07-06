@@ -14,17 +14,17 @@ export function photo(id: string, w = 1400): string {
 }
 
 export const images = {
-  desk: 'desk.jpg',
-  laserAssorted: 'laser_assorted.jpg',
-  plantBrackets: 'plant_brackets.jpg',
-  lightBrackets: 'light_brackets.jpg',
-  laserLiverpool: 'laser_liverpool.jpg',
-  deskBowties: 'desk_bowties.jpg',
-  cnc: 'cnc.jpg',
-  lightAssorted: 'light_assorted.jpg',
-  smithTowelRack: 'smithing_towelrack.jpg',
-  hosSign: 'laser_hearts_and_souls.jpg',
-  lightComplete: 'light_complete.jpg',
+  desk: 'desk.jpg', // A wooden desk made from elm and white oak
+  laserAssorted: 'laser_assorted.jpg', // A laser-cut frame with embedded magnets and interchangeable face plates, and an Arsenal sign
+  plantBrackets: 'plant_brackets.jpg', // A set of brackets for hanging plants
+  lightBrackets: 'light_brackets.jpg', // A set of brackets for hanging a wooden branch light fixture
+  laserLiverpool: 'laser_liverpool.jpg', // A laser-cut sign of the Liverpool crest
+  deskBowties: 'desk_bowties.jpg', // The elm desk with dark walnut bow-tie inlays
+  cnc: 'cnc.jpg', // Cutting the desk's bow-tie inlays on the CNC machine
+  lightAssorted: 'light_assorted.jpg', // Assorted brackets for hanging a wooden branch light fixture
+  smithTowelRack: 'smithing_towelrack.jpg', // A towel rack made from steel and oak
+  hosSign: 'laser_hearts_and_souls.jpg', // A laser-cut sign of the Hearts and Souls logo
+  lightComplete: 'light_complete.jpg', // A completed wooden branch light fixture with hanging brackets
 };
 
 
@@ -43,23 +43,23 @@ export const crafts = [
   {
     key: 'wood',
     title: 'Wood',
-    body: 'Furniture and objects, cut and joined by hand. White oak, walnut, and ash, finished so the grain does the talking.',
+    body: 'Furniture and knickknacks, cut and joined by hand. Beautiful wood grains sanded to a glassy finish.',
     img: images.lightComplete,
-    alt: 'Well-worn woodworking tools resting on a sawdust-dusted workbench.',
+    alt: 'A completed wooden branch light fixture hanging from its brackets.',
   },
   {
     key: 'steel',
     title: 'Steel',
     body: 'Forged hardware and ironwork. Heated in the coals, hammered on the anvil, then quenched. The hammer marks stay.',
     img: images.lightAssorted,
-    alt: 'A hammer striking a glowing orange bar of steel on the anvil.',
+    alt: 'Assorted brackets for hanging a wooden branch light fixture.',
   },
   {
     key: 'laser',
     title: 'Laser',
-    body: 'Clean cuts and engraving for signs, boxes, and inlay. Drawn first, then burned to a fraction of a millimetre.',
+    body: 'Clean cuts and engraving for signs, boxes, and inlay. Drawn first, then cut with precision.',
     img: images.laserAssorted,
-    alt: 'Wooden tiles engraved with fine portraits and patterns by a laser.',
+    alt: 'A laser-cut frame with embedded magnets and interchangeable face plates, beside an Arsenal sign.',
   },
 ];
 
@@ -83,24 +83,24 @@ export const steps = [
 
 export const pieces = [
   {
-    title: 'The Keepsake Box',
-    meta: 'Oiled walnut, fitted lid',
+    title: 'Plant Hanging Brackets',
+    meta: 'Forged steel with simple symbols',
     img: images.plantBrackets,
-    alt: 'An open oiled-walnut box with a fitted lid, holding a watch and small keepsakes.',
+    alt: 'A set of brackets for hanging plants.',
     span: 'lead',
   },
   {
-    title: 'The Kitchen Knife',
-    meta: 'Hand-forged high-carbon steel',
+    title: 'The Towel Rack',
+    meta: 'A towel rack on an oak backplate',
     img: images.smithTowelRack,
-    alt: 'A hand-forged blade catching a thin line of light against a black ground.',
+    alt: 'A towel rack made from steel and oak.',
     span: 'tall',
   },
   {
-    title: 'Engraved Keepsake',
-    meta: 'Laser-cut birch, your words',
+    title: 'Hearts & Souls Sign',
+    meta: 'A laser-cut logo for the band <a href="https://linktr.ee/heartsandsoulstheband" target="_blank" rel="noopener">Hearts &amp; Souls</a>',
     img: images.hosSign,
-    alt: 'Hands holding a laser-engraved wooden book with a name and a mountain range.',
+    alt: 'A laser-cut sign of the Hearts and Souls logo.',
     span: 'wide',
   },
 ];

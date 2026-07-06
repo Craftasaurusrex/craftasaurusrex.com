@@ -30,7 +30,7 @@ const instagram = socials.find((s) => s.label === 'Instagram');
             </div>
             <figcaption>
               <span class="piece-title">{p.title}</span>
-              <span class="piece-meta">{p.meta}</span>
+              <span class="piece-meta" set:html={p.meta}></span>
             </figcaption>
           </figure>
         ))
