@@ -1,0 +1,15 @@
+# Craftasaurus
+
+> Craftasaurus is a one-person workshop making handcrafted furniture, forged steel hardware, and laser-cut wood goods. Every piece is drawn, cut, forged, and finished by hand, made to order, and signed on the underside.
+
+Craftasaurus works in three materials from one bench:
+
+- **Wood**: furniture and knickknacks, cut and joined by hand, sanded to a glassy finish.
+- **Steel**: forged hardware and ironwork — heated in the coals, hammered on the anvil, then quenched. The hammer marks stay.
+- **Laser**: clean cuts and engraving for signs, boxes, and inlay.
+
+The process is drawing → making → finishing: every piece starts on paper, is built at the bench, then oiled, waxed, or hand-rubbed to a patina before shipping.
+
+## Site
+
+- [Home](https://craftasaurusrex.com/): the workshop's story, crafts, process, featured pieces, and how to order.
