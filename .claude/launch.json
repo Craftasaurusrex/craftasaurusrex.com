@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "qpl-dev",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd /d C:\\code\\qualityplasticsltd && npm run dev -- --port 4380"],
+      "port": 4380,
+      "autoPort": false
+    }
+  ]
+}

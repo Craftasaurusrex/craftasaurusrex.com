@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `02045b71`
+- Built from commit: `5345c4c5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -28,13 +28,13 @@
 1. `scripts` - 6 edges
 2. `../components/Nav.astro` - 4 edges
 3. `../components/Featured.astro` - 3 edges
-4. `../components/CTA.astro` - 2 edges
-5. `../components/Crafts.astro` - 2 edges
-6. `../components/Maker.astro` - 2 edges
-7. `../components/Process.astro` - 2 edges
-8. `../layouts/Base.astro` - 2 edges
-9. `year` - 1 edges
-10. `private` - 1 edges
+4. `../components/Footer.astro` - 3 edges
+5. `../components/CTA.astro` - 2 edges
+6. `../components/Crafts.astro` - 2 edges
+7. `../components/Hero.astro` - 2 edges
+8. `../components/Maker.astro` - 2 edges
+9. `../components/Process.astro` - 2 edges
+10. `../layouts/Base.astro` - 2 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -46,7 +46,7 @@
 
 ### Community 0 - "index.astro"
 Cohesion: 0.29
-Nodes (8): ../data, ../components/Crafts.astro, ../components/CTA.astro, ../components/Featured.astro, instagram, year, ../components/Maker.astro, ../components/Process.astro
+Nodes (10): ../data, ../components/Crafts.astro, ../components/CTA.astro, ../components/Featured.astro, instagram, ../components/Footer.astro, year, ../components/Hero.astro (+2 more)
 
 ### Community 1 - "data.ts"
 Cohesion: 0.25
@@ -73,7 +73,7 @@ Cohesion: 0.67
 Nodes (3): ../components/Nav.astro, menuBtn, mobileNav
 
 ## Knowledge Gaps
-- **28 isolated node(s):** `year`, `name`, `type`, `version`, `private` (+23 more)
+- **28 isolated node(s):** `name`, `type`, `version`, `private`, `dev` (+23 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -86,5 +86,5 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.066) - this node is a cross-community bridge._
 - **Why does `../components/Nav.astro` connect `../components/Nav.astro` to `index.astro`?**
   _High betweenness centrality (0.028) - this node is a cross-community bridge._
-- **What connects `year`, `name`, `type` to the rest of the system?**
+- **What connects `name`, `type`, `version` to the rest of the system?**
   _28 weakly-connected nodes found - possible documentation gaps or missing edges._

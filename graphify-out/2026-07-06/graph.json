@@ -350,9 +350,10 @@
       "source_file": "src/components/Crafts.astro",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_crafts",
       "community": 0,
-      "norm_label": "crafts.astro"
+      "norm_label": "crafts.astro",
+      "id": "src_components_crafts",
+      "community_name": "index.astro"
     },
     {
       "label": "../data",
@@ -360,9 +361,10 @@
       "source_file": "src/data",
       "confidence": "EXTRACTED",
       "_origin": "ast",
-      "id": "c_code_craftasaurus_brand_src_data",
       "community": 0,
-      "norm_label": "../data"
+      "norm_label": "../data",
+      "id": "c_code_craftasaurus_brand_src_data",
+      "community_name": "index.astro"
     },
     {
       "label": "Featured.astro",
@@ -370,9 +372,10 @@
       "source_file": "src/components/Featured.astro",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_featured",
       "community": 0,
-      "norm_label": "featured.astro"
+      "norm_label": "featured.astro",
+      "id": "src_components_featured",
+      "community_name": "index.astro"
     },
     {
       "label": "instagram",
@@ -380,9 +383,10 @@
       "source_file": "src/components/Featured.astro",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "src_components_featured_instagram",
       "community": 0,
-      "norm_label": "instagram"
+      "norm_label": "instagram",
+      "id": "src_components_featured_instagram",
+      "community_name": "index.astro"
     },
     {
       "label": "Hero.astro",
@@ -390,9 +394,10 @@
       "source_file": "src/components/Hero.astro",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_hero",
       "community": 0,
-      "norm_label": "hero.astro"
+      "norm_label": "hero.astro",
+      "id": "src_components_hero",
+      "community_name": "index.astro"
     },
     {
       "label": "Maker.astro",
@@ -400,9 +405,10 @@
       "source_file": "src/components/Maker.astro",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_maker",
       "community": 0,
-      "norm_label": "maker.astro"
+      "norm_label": "maker.astro",
+      "id": "src_components_maker",
+      "community_name": "index.astro"
     },
     {
       "label": "Process.astro",
@@ -410,9 +416,10 @@
       "source_file": "src/components/Process.astro",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_process",
       "community": 0,
-      "norm_label": "process.astro"
+      "norm_label": "process.astro",
+      "id": "src_components_process",
+      "community_name": "index.astro"
     },
     {
       "label": "data.ts",
@@ -420,9 +427,10 @@
       "source_file": "src/data.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data",
       "community": 1,
-      "norm_label": "data.ts"
+      "norm_label": "data.ts",
+      "id": "src_data",
+      "community_name": "data.ts"
     },
     {
       "label": "photo()",
@@ -430,9 +438,10 @@
       "source_file": "src/data.ts",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_data_photo",
       "community": 1,
-      "norm_label": "photo()"
+      "norm_label": "photo()",
+      "id": "src_data_photo",
+      "community_name": "data.ts"
     },
     {
       "label": "images",
@@ -440,9 +449,10 @@
       "source_file": "src/data.ts",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_data_images",
       "community": 1,
-      "norm_label": "images"
+      "norm_label": "images",
+      "id": "src_data_images",
+      "community_name": "data.ts"
     },
     {
       "label": "nav",
@@ -450,9 +460,10 @@
       "source_file": "src/data.ts",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "src_data_nav",
       "community": 1,
-      "norm_label": "nav"
+      "norm_label": "nav",
+      "id": "src_data_nav",
+      "community_name": "data.ts"
     },
     {
       "label": "socials",
@@ -460,9 +471,10 @@
       "source_file": "src/data.ts",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "src_data_socials",
       "community": 1,
-      "norm_label": "socials"
+      "norm_label": "socials",
+      "id": "src_data_socials",
+      "community_name": "data.ts"
     },
     {
       "label": "crafts",
@@ -470,9 +482,10 @@
       "source_file": "src/data.ts",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "src_data_crafts",
       "community": 1,
-      "norm_label": "crafts"
+      "norm_label": "crafts",
+      "id": "src_data_crafts",
+      "community_name": "data.ts"
     },
     {
       "label": "steps",
@@ -480,9 +493,10 @@
       "source_file": "src/data.ts",
       "source_location": "L66",
       "_origin": "ast",
-      "id": "src_data_steps",
       "community": 1,
-      "norm_label": "steps"
+      "norm_label": "steps",
+      "id": "src_data_steps",
+      "community_name": "data.ts"
     },
     {
       "label": "pieces",
@@ -490,9 +504,10 @@
       "source_file": "src/data.ts",
       "source_location": "L84",
       "_origin": "ast",
-      "id": "src_data_pieces",
       "community": 1,
-      "norm_label": "pieces"
+      "norm_label": "pieces",
+      "id": "src_data_pieces",
+      "community_name": "data.ts"
     }
   ],
   "links": [
@@ -848,41 +863,41 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "src/components/Crafts.astro",
+      "confidence_score": 1.0,
       "source": "src_components_crafts",
-      "target": "c_code_craftasaurus_brand_src_data",
-      "confidence_score": 1.0
+      "target": "c_code_craftasaurus_brand_src_data"
     },
     {
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "src/components/Featured.astro",
+      "confidence_score": 1.0,
       "source": "src_components_featured",
-      "target": "c_code_craftasaurus_brand_src_data",
-      "confidence_score": 1.0
+      "target": "c_code_craftasaurus_brand_src_data"
     },
     {
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "src/components/Hero.astro",
+      "confidence_score": 1.0,
       "source": "src_components_hero",
-      "target": "c_code_craftasaurus_brand_src_data",
-      "confidence_score": 1.0
+      "target": "c_code_craftasaurus_brand_src_data"
     },
     {
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "src/components/Maker.astro",
+      "confidence_score": 1.0,
       "source": "src_components_maker",
-      "target": "c_code_craftasaurus_brand_src_data",
-      "confidence_score": 1.0
+      "target": "c_code_craftasaurus_brand_src_data"
     },
     {
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "src/components/Process.astro",
+      "confidence_score": 1.0,
       "source": "src_components_process",
-      "target": "c_code_craftasaurus_brand_src_data",
-      "confidence_score": 1.0
+      "target": "c_code_craftasaurus_brand_src_data"
     },
     {
       "relation": "contains",
@@ -890,9 +905,9 @@
       "source_file": "src/components/Featured.astro",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_featured",
-      "target": "src_components_featured_instagram",
-      "confidence_score": 1.0
+      "target": "src_components_featured_instagram"
     },
     {
       "relation": "contains",
@@ -900,9 +915,9 @@
       "source_file": "src/data.ts",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data",
-      "target": "src_data_crafts",
-      "confidence_score": 1.0
+      "target": "src_data_crafts"
     },
     {
       "relation": "contains",
@@ -910,9 +925,9 @@
       "source_file": "src/data.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data",
-      "target": "src_data_images",
-      "confidence_score": 1.0
+      "target": "src_data_images"
     },
     {
       "relation": "contains",
@@ -920,9 +935,9 @@
       "source_file": "src/data.ts",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data",
-      "target": "src_data_nav",
-      "confidence_score": 1.0
+      "target": "src_data_nav"
     },
     {
       "relation": "contains",
@@ -930,9 +945,9 @@
       "source_file": "src/data.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data",
-      "target": "src_data_photo",
-      "confidence_score": 1.0
+      "target": "src_data_photo"
     },
     {
       "relation": "contains",
@@ -940,9 +955,9 @@
       "source_file": "src/data.ts",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data",
-      "target": "src_data_pieces",
-      "confidence_score": 1.0
+      "target": "src_data_pieces"
     },
     {
       "relation": "contains",
@@ -950,9 +965,9 @@
       "source_file": "src/data.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data",
-      "target": "src_data_socials",
-      "confidence_score": 1.0
+      "target": "src_data_socials"
     },
     {
       "relation": "contains",
@@ -960,9 +975,9 @@
       "source_file": "src/data.ts",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data",
-      "target": "src_data_steps",
-      "confidence_score": 1.0
+      "target": "src_data_steps"
     }
   ],
   "hyperedges": [],
