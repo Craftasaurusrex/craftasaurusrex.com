@@ -1,0 +1,216 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { photo, images, socials } from '../data';
+
+const title = 'About Dino Kadric — the maker behind Craftasaurus';
+const description =
+  'Meet Dino Kadric: software developer by day, maker by night. He builds furniture, forged steel hardware, and laser-cut wood goods by hand in his Norwegian workshop.';
+
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: title,
+  url: new URL('/about/', Astro.site).href,
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Dino Kadric',
+    jobTitle: 'Maker & Founder',
+    description:
+      'Software developer by day and maker by night. Dino Kadric runs Craftasaurus, a one-person workshop in Norway making handcrafted wood furniture, forged steel hardware, and laser-cut goods.',
+    email: 'mailto:dino@craftasaurusrex.com',
+    address: { '@type': 'PostalAddress', addressCountry: 'NO' },
+    knowsAbout: ['Woodworking', 'Blacksmithing', 'Laser cutting', 'Software development'],
+    sameAs: socials.map((s) => s.href),
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Craftasaurus',
+      url: new URL('/', Astro.site).href,
+    },
+  },
+});
+---
+
+<Base title={title} description={description}>
+  <Nav />
+  <main class="about">
+    <div class="wrap about-grid">
+      <header class="about-copy">
+        <p class="eyebrow reveal">The maker</p>
+        <h1 class="reveal" style="--reveal-delay: 60ms">Hi, I&rsquo;m&nbsp;Dino.</h1>
+
+        <div class="about-text reveal" style="--reveal-delay: 120ms">
+          <p>
+            I was born in Yugoslavia, grew up in the UK after my family started
+            over there, and eventually followed a wonderful Norwegian woman
+            north. The workshop &mdash; and Craftasaurus &mdash; now lives in
+            Norway.
+          </p>
+          <p>
+            By day I write software. Good work, but at the end of it there is
+            nothing you can hold. The bench is the counterweight: real wood,
+            real steel, and no undo button. When I plane a board or pull a bar
+            of glowing steel from the fire, the day&rsquo;s work has weight,
+            grain, and heat.
+          </p>
+          <p>
+            Craftasaurus started as things for our own house &mdash; brackets,
+            a desk, a sign for a friend&rsquo;s band. People kept asking where
+            they came from, then whether I would make one for them. At some
+            point &ldquo;hobby&rdquo; stopped being the right word.
+          </p>
+
+          <h2>Off the bench</h2>
+          <p>
+            When I&rsquo;m not lifting a hammer I&rsquo;m lifting weights, or
+            getting folded in half at Brazilian jiu-jitsu. Summers are for slow
+            barbecue. And thanks to <em>Solo Leveling</em> I have fallen head
+            first down the Korean rabbit hole &mdash; the shows, the music, all
+            of it. I regret nothing.
+          </p>
+        </div>
+
+        <dl class="about-facts reveal" style="--reveal-delay: 180ms">
+          <div>
+            <dt>Workshop</dt>
+            <dd>Norway, trading as Kadric H&aring;ndverk.</dd>
+          </div>
+          <div>
+            <dt>By day</dt>
+            <dd>Software developer.</dd>
+          </div>
+          <div>
+            <dt>By night</dt>
+            <dd>Wood, steel, and fire.</dd>
+          </div>
+        </dl>
+
+        <div class="about-cta reveal" style="--reveal-delay: 240ms">
+          <a href="/#commissions" class="btn">Commission a piece</a>
+          <a class="arrow-link" href="mailto:dino@craftasaurusrex.com">
+            dino@craftasaurusrex.com
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <figure class="about-figure reveal" style="--reveal-delay: 120ms">
+        <div class="about-frame">
+          <img
+            src={photo(images.deskBowties, 1000)}
+            srcset={`${photo(images.deskBowties, 700)} 700w, ${photo(images.deskBowties, 1080)} 1080w`}
+            sizes="(max-width: 900px) 92vw, 40vw"
+            width="700"
+            height="875"
+            loading="eager"
+            fetchpriority="high"
+            alt="The elm desk with dark walnut bow-tie inlays, made by Dino in the Craftasaurus workshop."
+          />
+        </div>
+        <figcaption>The elm desk &mdash; walnut bow-ties, cut and fitted by hand.</figcaption>
+      </figure>
+    </div>
+  </main>
+  <Footer />
+  <script type="application/ld+json" set:html={schema} is:inline />
+</Base>
+
+<style>
+  .about {
+    padding-block: clamp(3rem, 7vw, 6rem);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  .about-copy h1 {
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    margin: 0.9rem 0 1.5rem;
+  }
+  .about-text h2 {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    margin: 2.2rem 0 0.9rem;
+  }
+  .about-text p {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 58ch;
+  }
+
+  .about-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin: 2.25rem 0 0;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--hairline);
+  }
+  .about-facts dt {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 0.4rem;
+  }
+  .about-facts dd {
+    margin: 0;
+    font-weight: 500;
+    max-width: 22ch;
+  }
+
+  .about-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.25rem;
+  }
+
+  .about-figure {
+    margin: 0;
+    position: sticky;
+    top: calc(68px + 2rem);
+  }
+  .about-frame {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 30px 60px -38px oklch(0.235 0.012 55 / 0.55);
+  }
+  .about-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px var(--hairline);
+    border-radius: var(--radius);
+  }
+  .about-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+  .about-figure figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-figure {
+      position: static;
+      max-width: 28rem;
+      order: -1;
+    }
+  }
+</style>

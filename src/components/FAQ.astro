@@ -1,0 +1,173 @@
+---
+const instagram = 'https://www.instagram.com/craftasaurusrex/';
+
+const faqs = [
+  {
+    q: 'How does a commission work?',
+    a: `Email me at <a href="mailto:dino@craftasaurusrex.com">dino@craftasaurusrex.com</a> or send a DM on <a href="${instagram}" target="_blank" rel="noopener">Instagram</a>. We talk through what you want &mdash; the size, the material, the look. I send you an estimate for what it will cost and how long it will take. Once you&rsquo;re happy with it, I start the work.`,
+    text: 'Email me at dino@craftasaurusrex.com or send a DM on Instagram. We talk through what you want — the size, the material, the look. I send you an estimate for what it will cost and how long it will take. Once you’re happy with it, I start the work.',
+  },
+  {
+    q: 'What does a piece cost?',
+    a: 'Every piece is priced on its own &mdash; the material, the size, and the hours all differ. You get the number in the estimate, before any work starts. No surprises after.',
+    text: 'Every piece is priced on its own — the material, the size, and the hours all differ. You get the number in the estimate, before any work starts. No surprises after.',
+  },
+  {
+    q: 'How long will it take?',
+    a: 'A small sign and a desk are different animals, so I don&rsquo;t promise a blanket number. The estimate includes an honest timeline for your piece, and if something slips, you hear it from me first.',
+    text: 'A small sign and a desk are different animals, so I don’t promise a blanket number. The estimate includes an honest timeline for your piece, and if something slips, you hear it from me first.',
+  },
+  {
+    q: 'How does payment work?',
+    a: 'We agree on it when you accept the estimate. No webshop, no checkout &mdash; just the two of us sorting out what works.',
+    text: 'We agree on it when you accept the estimate. No webshop, no checkout — just the two of us sorting out what works.',
+  },
+  {
+    q: 'Do you ship?',
+    a: 'Within Norway, yes &mdash; shipping is worked out from the size and weight of the piece. Outside Norway, we figure it out case by case; ask, and you&rsquo;ll know what shipping costs before you commit to anything.',
+    text: 'Within Norway, yes — shipping is worked out from the size and weight of the piece. Outside Norway, we figure it out case by case; ask, and you’ll know what shipping costs before you commit to anything.',
+  },
+  {
+    q: 'What if something is wrong with my piece?',
+    a: 'A commissioned piece is made for you, so I don&rsquo;t take returns on custom work. But if the materials or my workmanship let you down, tell me and I&rsquo;ll make it right &mdash; a repair or a remake, whatever it takes. Anything else, talk to me and we&rsquo;ll sort it out.',
+    text: 'A commissioned piece is made for you, so I don’t take returns on custom work. But if the materials or my workmanship let you down, tell me and I’ll make it right — a repair or a remake, whatever it takes. Anything else, talk to me and we’ll sort it out.',
+  },
+  {
+    q: 'What materials and finishes can I choose?',
+    a: 'Solid hardwoods &mdash; elm, oak, and walnut among them &mdash; mild and tool steel, and laser-cut wood. Finishes are oil, wax, or a hand-rubbed patina. Pick what you like, or describe the look you&rsquo;re after and I&rsquo;ll suggest what suits it.',
+    text: 'Solid hardwoods — elm, oak, and walnut among them — mild and tool steel, and laser-cut wood. Finishes are oil, wax, or a hand-rubbed patina. Pick what you like, or describe the look you’re after and I’ll suggest what suits it.',
+  },
+  {
+    q: 'How do I look after it?',
+    a: 'Oiled wood wants a wipe-down when it gets wet and fresh oil about once a year. Waxed steel wants to stay dry, with a new coat of wax when it starts to dull. If you&rsquo;re not sure what your piece was finished with, ask me &mdash; I made it, I remember.',
+    text: 'Oiled wood wants a wipe-down when it gets wet and fresh oil about once a year. Waxed steel wants to stay dry, with a new coat of wax when it starts to dull. If you’re not sure what your piece was finished with, ask me — I made it, I remember.',
+  },
+  {
+    q: 'Do you take repairs or one-off jobs?',
+    a: 'Ask. If it&rsquo;s something I can do well, I&rsquo;ll say yes. If it isn&rsquo;t, I&rsquo;ll say that too.',
+    text: 'Ask. If it’s something I can do well, I’ll say yes. If it isn’t, I’ll say that too.',
+  },
+  {
+    q: 'Norsk eller engelsk?',
+    a: 'Both work. English is easiest for me, but Norwegian is fine &mdash; skriv i vei.',
+    text: 'Both work. English is easiest for me, but Norwegian is fine — skriv i vei.',
+  },
+];
+
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.text },
+  })),
+});
+---
+
+<section class="faq" id="faq">
+  <div class="wrap faq-inner">
+    <div class="faq-head">
+      <p class="eyebrow reveal">Good to know</p>
+      <h2 class="reveal" style="--reveal-delay: 70ms">Questions, answered honestly.</h2>
+    </div>
+
+    <div class="faq-list">
+      {
+        faqs.map((f, i) => (
+          <details class="faq-item reveal" style={`--reveal-delay: ${90 + i * 55}ms`}>
+            <summary>
+              <span class="faq-q">{f.q}</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+            </summary>
+            <div class="faq-a">
+              <p set:html={f.a} />
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={schema} is:inline />
+
+<style>
+  .faq {
+    padding-block: clamp(3rem, 6.5vw, 5.5rem);
+    background: var(--surface);
+  }
+  .faq-inner {
+    max-width: 52rem;
+  }
+  .faq-head {
+    margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  }
+  .faq-head .eyebrow { margin: 0 0 0.9rem; }
+  .faq-head h2 {
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    margin: 0;
+  }
+
+  .faq-item {
+    border-top: 1px solid var(--hairline);
+  }
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.35rem 0;
+    cursor: pointer;
+    list-style: none;
+    color: var(--ink);
+    transition: color 0.2s var(--ease-out);
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-q {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.018em;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.2;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .faq-item summary:hover { color: var(--ember); }
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--ember);
+    transition: transform 0.28s var(--ease-out);
+  }
+  .faq-item[open] .faq-chevron { transform: rotate(180deg); }
+
+  .faq-a {
+    padding: 0 0 1.45rem;
+  }
+  .faq-a p {
+    margin: 0;
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+  .faq-a a {
+    color: var(--ember);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-chevron { transition: none; }
+  }
+</style>

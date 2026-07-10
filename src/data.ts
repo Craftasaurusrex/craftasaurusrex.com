@@ -28,10 +28,12 @@ export const images = {
 };
 
 
+// Root-relative hashes so links work from /about as well as the landing page.
 export const nav = [
-  { label: 'The making', href: '#process' },
-  { label: 'Work', href: '#work' },
-  { label: 'Shop', href: '#shop' },
+  { label: 'The making', href: '/#process' },
+  { label: 'Work', href: '/#work' },
+  { label: 'Commissions', href: '/#commissions' },
+  { label: 'About', href: '/about' },
 ];
 
 export const socials = [

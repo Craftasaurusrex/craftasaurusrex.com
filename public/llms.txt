@@ -13,3 +13,4 @@ The process is drawing → making → finishing: every piece starts on paper, is
 ## Site
 
 - [Home](https://craftasaurusrex.com/): the workshop's story, crafts, process, featured pieces, and how to order.
+- [About](https://craftasaurusrex.com/about/): the maker — Dino Kadric, a software developer by day who builds every Craftasaurus piece by night from his workshop in Norway (trading as Kadric Håndverk).

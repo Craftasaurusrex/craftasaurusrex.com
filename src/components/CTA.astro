@@ -2,25 +2,36 @@
 import { photo, images } from '../data';
 ---
 
-<section class="cta" id="shop">
+<section class="cta" id="commissions">
   <div class="cta-texture" aria-hidden="true">
     <img src={photo(images.laserLiverpool, 1600)} width="1600" height="900" loading="lazy" alt="" />
   </div>
   <div class="wrap cta-inner">
     <h2 class="reveal">Have something in mind?</h2>
     <p class="reveal" style="--reveal-delay: 90ms">
-      Tell me what you want made. I will say honestly whether wood, steel, or
-      laser is right for it, what it costs, and how long it takes.
+      Email me or send a DM on Instagram. We talk through what you want made, I
+      send an honest estimate for cost and time, and once you&rsquo;re happy I
+      start the work.
     </p>
     <div class="cta-actions reveal" style="--reveal-delay: 170ms">
-      <a href="mailto:dino@craftasaurusrex.com?subject=Commission" class="btn">
-        Start a commission
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14M13 6l6 6-6 6"></path>
-        </svg>
-      </a>
-      <span class="cta-note">The shop opens soon. Commissions are open now.</span>
+      <div class="cta-buttons">
+        <a href="mailto:dino@craftasaurusrex.com?subject=Commission" class="btn">
+          Start a commission
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"></path>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/craftasaurusrex/" target="_blank" rel="noopener"
+          class="arrow-link cta-dm">
+          or DM me on Instagram
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"></path>
+          </svg>
+        </a>
+      </div>
+      <span class="cta-note">Commissions are open now.</span>
     </div>
   </div>
 </section>
@@ -72,6 +83,20 @@ import { photo, images } from '../data';
     align-items: center;
     gap: 1rem;
     margin-top: 2.25rem;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem 1.75rem;
+  }
+  .cta-dm {
+    color: oklch(0.9 0.008 70);
+    transition: color 0.2s var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .cta-dm:hover { color: var(--ember-hot); }
   }
   .cta-note {
     font-size: 0.9rem;

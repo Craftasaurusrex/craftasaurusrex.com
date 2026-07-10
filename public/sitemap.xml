@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ponytail: static one-URL sitemap; switch to @astrojs/sitemap when more pages exist -->
+<!-- ponytail: static sitemap; switch to @astrojs/sitemap when pages multiply -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://craftasaurusrex.com/</loc>
+  </url>
+  <url>
+    <loc>https://craftasaurusrex.com/about/</loc>
   </url>
 </urlset>

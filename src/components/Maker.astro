@@ -32,6 +32,13 @@ import { photo, images } from '../data';
           of a real material that will age and last.
         </p>
       </div>
+      <a class="arrow-link reveal" style="--reveal-delay: 130ms" href="/about">
+        More about me
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
       <dl class="maker-facts reveal" style="--reveal-delay: 160ms">
         <div>
           <dt>Materials</dt>
@@ -90,6 +97,8 @@ import { photo, images } from '../data';
     max-width: 54ch;
   }
   .maker-text p:last-child { margin-bottom: 0; }
+
+  .maker-copy .arrow-link { margin-top: 1.4rem; }
 
   .maker-facts {
     display: flex;

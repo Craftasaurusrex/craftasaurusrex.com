@@ -1,0 +1,11 @@
+{
+  "0": "index.astro",
+  "1": "data.ts",
+  "2": "dependencies",
+  "3": "scripts",
+  "4": "package.json",
+  "5": "tsconfig.json",
+  "6": "../components/Nav.astro",
+  "7": "../layouts/Base.astro",
+  "8": "astro.config.mjs"
+}
